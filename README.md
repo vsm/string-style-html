@@ -30,4 +30,4 @@ console.dir( stringStyleHtml('HCO3-', 's3;u4') );
 ## Specification
 
 The full specification and more examples are in
-[stringStyleHtml.test.js](src/stringStyleHtml.test.js).
+[index.test.js](src/index.test.js).
