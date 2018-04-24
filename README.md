@@ -3,7 +3,9 @@
 Converts a *string* and a simple '*style*'-instructions string,
 to *HTML* code that has styling tags inserted.
 
-This functionality is used by both vsm-autocomplete and vsm-box,
+This functionality is used by both
+[`vsm-autocomplete`](https://github.com/vsmjs/vsm-autocomplete) and
+[`vsm-box`](https://github.com/vsmjs/vsm-box),
 which is why it is a separate package.
 
 
@@ -28,4 +30,4 @@ console.dir( stringStyleHtml('HCO3-', 's3;u4') );
 ## Specification
 
 The full specification and more examples are in
-[stringStyleHtml.test.js](stringStyleHtml.test.js).
+[stringStyleHtml.test.js](src/stringStyleHtml.test.js).
