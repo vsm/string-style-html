@@ -65,9 +65,9 @@ describe.only('stringStyleHtml()', function() {
     stringStyleHtml('<b&d>', 'b2').should.equal('&lt;b<b>&amp;</b>d&gt;');
   });
 
-  it('adds extra content to inserted tags, via argument 3', () => {
-    stringStyleHtml('abc', 'i', 'style="pointer-events:none"').should.equal(
-      '<i style="pointer-events:none">abc</i>');
+  it('adds extra content to inserted opening-tags, via argument 3', () => {
+    stringStyleHtml('abc', 'i', 'style="pointer-events: none;"').should.equal(
+      '<i style="pointer-events: none;">abc</i>');
   });
 
 });
