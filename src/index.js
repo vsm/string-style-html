@@ -8,7 +8,9 @@ var typesToTags = {
 
 
 module.exports = function stringStyleHtml(str, style, extraTagContent) {
-  if (!style)  return str;
+  if (!style  ||  typeof style !== 'string')  return str;
+
+  if (style.startsWith('<'))  return style;
 
   var styleParts = style.split(';');
   var stylePrefixes =  // Prefixes to insert before str's chars. Last is postfix.

@@ -9,6 +9,19 @@ describe.only('stringStyleHtml()', () => {
     stringStyleHtml('abc').should.equal('abc');
   });
 
+  it('does not modify a string when `style` is not a String', () => {
+    stringStyleHtml('abc', { test: 1 }).should.equal('abc');
+  });
+
+  it('does not modify a string when `style` is `\'\'`', () => {
+    stringStyleHtml('abc', '').should.equal('abc');
+  });
+
+  it('returns `style` when it is a String that starts with \'<\'', () => {
+    var style = '<span>a<i>b</i>c</span>';
+    stringStyleHtml('abc', style).should.equal(style);
+  });
+
   it('applies a style to a whole string', () => {
     stringStyleHtml('cdc2', 'i').should.equal('<i>cdc2</i>');
   });

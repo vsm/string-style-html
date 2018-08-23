@@ -1,8 +1,9 @@
 # string-style-html
 
-Converts a ***string*** and a simple '***style***'-instructions string,
-to ***HTML*** code that has styling tags inserted.  
-It also HTML-encodes the characters `&`, `<`, and `>`.
+Converts a **string** and a simple '**style**'-instructions string,
+to **HTML** code that has styling tags inserted.  
+It also HTML-encodes any `&`, `<`, and `>` characters in the string
+before it inserts the style tags.
 
 This functionality is used by both
 [`vsm-autocomplete`](https://github.com/vsmjs/vsm-autocomplete) and
@@ -14,13 +15,17 @@ This functionality is used by both
 This package provides a function `f(str, style, extraContent)`.  
 All arguments are strings, while the last two are optional.
 
-- If `style` is not given or `''`, then it returns `str` unchanged.  
-  Else it returns `str`, with HTML styling tags inserted:<br><br>
+- If `style` is not given, or a not String, or `''`,
+  then it returns `str` unchanged.  
+- If `style` is a String that starts with `'<'`, then it returns `style`.  
+  This is useful for when `style` contains a styled version of `str`, i.e. with
+  HTML-tags already inserted. It should start with e.g. a `<span>` tag then.
+- Else it returns `str`, with HTML styling tags inserted:<br>
   - If `style` is the single character `'i'`, `'b'`, `'s'`, or `'u'`, then
     it applies the italic, bold, subscript, or superscript style resp.,
     to the entire string.  
     + E.g. `f('abcd', 'i')` returns `<i>abcd</i>`.<br><br>
-  - `style` can also include a range `{startIndex}-{stopIndex}` that says
+  - `style` can also include a range '{startIndex}-{stopIndex}' that says
     which part of the string should be styled.
     E.g. `'i0-3'` applies italic to the first three characters of `str`.  
     So indexes count from 0, and `stopIndex` is where styling stops before.
