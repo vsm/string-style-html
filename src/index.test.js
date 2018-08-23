@@ -3,7 +3,7 @@ const chai = require('chai');
 chai.should();
 
 
-describe.only('stringStyleHtml()', function() {
+describe.only('stringStyleHtml()', () => {
 
   it('does not modify a string when not given a `style` argument', () => {
     stringStyleHtml('abc').should.equal('abc');
