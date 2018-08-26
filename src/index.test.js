@@ -17,9 +17,9 @@ describe.only('stringStyleHtml()', () => {
     stringStyleHtml('abc', '').should.equal('abc');
   });
 
-  it('returns `style` when it is a String that starts with \'<\'', () => {
-    var style = '<span>a<i>b</i>c</span>';
-    stringStyleHtml('abc', style).should.equal(style);
+  it('returns `style` when it is a String that contains \'<\'', () => {
+    stringStyleHtml('abc', 'a<i>b</i>c').should.equal('a<i>b</i>c');
+    stringStyleHtml('abc', '<span>abc</span>').should.equal('<span>abc</span>');
   });
 
   it('applies a style to a whole string', () => {

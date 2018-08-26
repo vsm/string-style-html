@@ -17,9 +17,9 @@ All arguments are strings, while the last two are optional.
 
 - If `style` is not given, or a not String, or `''`,
   then it returns `str` unchanged.  
-- If `style` is a String that starts with `'<'`, then it returns `style`.  
-  This is useful for when `style` contains a styled version of `str`, i.e. with
-  HTML-tags already inserted. It should start with e.g. a `<span>` tag then.
+- If `style` is a String that contains a `'<'`, then it is supposed to hold
+  a styled version of `str`, with HTML-tags already inserted.  
+  In this case it returns `style`.
 - Else it returns `str`, with HTML styling tags inserted:<br>
   - If `style` is the single character `'i'`, `'b'`, `'s'`, or `'u'`, then
     it applies the italic, bold, subscript, or superscript style resp.,
