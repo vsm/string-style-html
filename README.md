@@ -17,35 +17,39 @@ All arguments are strings, while the last two are optional.
 
 - If `style` is not given, or a not String, or `''`,
   then it returns `str` unchanged.  
+  + E.g. `f('abcd')` returns `'abcd'`.
+  + E.g. `f('abcd', '')` returns `'abcd'`.
 - If `style` is a String that contains a `'<'`, then it is supposed to hold
-  a styled version of `str`, with HTML-tags already inserted.  
+  a styled version of `str`, with HTML-tags already inserted.
   In this case it returns `style`.
+  + E.g. `f('abcd', 'a<i>bc</i>d')` returns `'a<i>bc</i>d'`.
 - Else it returns `str`, with HTML styling tags inserted:<br>
   - If `style` is the single character `'i'`, `'b'`, `'s'`, or `'u'`, then
     it applies the italic, bold, subscript, or superscript style resp.,
     to the entire string.  
-    + E.g. `f('abcd', 'i')` returns `<i>abcd</i>`.<br><br>
+    + E.g. `f('abcd', 'i')` returns `'<i>abcd</i>'`.<br><br>
   - `style` can also include a range '{startIndex}-{stopIndex}' that says
     which part of the string should be styled.
     E.g. `'i0-3'` applies italic to the first three characters of `str`.  
-    So indexes count from 0, and `stopIndex` is where styling stops before.
-    + E.g. `f('abcd', 'i1-3')` returns `a<i>bc</i>d`.<br><br>
+    Indexes count from 0, and `stopIndex` is the location just before where
+    styling stops.
+    + E.g. `f('abcd', 'i1-3')` returns `'a<i>bc</i>d'`.<br><br>
   - `style` can also include a single index for a one-character range.
-    + E.g. `f('abcd', 'i2')` returns `ab<i>c</i>d`.<br><br>
+    + E.g. `f('abcd', 'i2')` returns `'ab<i>c</i>d'`.<br><br>
   - `style` can include multiple styling instructions, separated by a `;`.  
     (Note: overlapping ranges are handled correctly, see
     [index.test.js](src/index.test.js)).
     + E.g. `f('abcd', 'i1;u2-4')`
-      returns `a<i>b</i><sup>cd</sup>`.<br><br>
+      returns `'a<i>b</i><sup>cd</sup>'`.<br><br>
 
 - It html-encodes `<`, `>`, and `&`.
   + E.g. `f('<b&d>', 'b2')`
-    returns `&lt;b<b>&amp;</b>d&gt;`.<br><br>
+    returns `'&lt;b<b>&amp;</b>d&gt;'`.<br><br>
 
 - If given an `extraContent` argument,
   it adds that extra content to inserted opening-tags.
   + E.g. `f('abc', 'i', 'style="pointer-events: none;"')` returns
-    `<i style="pointer-events: none;">abc</i>`.
+    `'<i style="pointer-events: none;">abc</i>'`.
 
 
 ## Example Use
