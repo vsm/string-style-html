@@ -17,7 +17,6 @@ All arguments are strings, while the last two are optional.
 
 - If `style` is not given, or a not String, or `''`,
   then it returns `str` unchanged.  
-  + E.g. `f('abcd')` returns `'abcd'`.
   + E.g. `f('abcd', '')` returns `'abcd'`.
 - If `style` is a String that contains a `'<'`, then it is supposed to hold
   a styled version of `str`, with HTML-tags already inserted.
