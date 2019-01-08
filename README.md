@@ -13,7 +13,7 @@ This functionality is used by both
 ## Specification
 
 This package provides a function `f(str, style, extraContent)`.  
-All arguments are strings, while the last two are optional.
+All arguments are Strings, and the last two are optional.
 
 - If `style` is not given, or a not String, or `''`,
   then it returns `str` unchanged.  
@@ -64,4 +64,7 @@ console.dir( stringStyleHtml('Ca2+', 'u2-4') );
 
 console.dir( stringStyleHtml('HCO3-', 's3;u4') );
 // =>'HCO<sub>3</sub><sup>-</sup>'.
+
+console.dir( stringStyleHtml('abc', 'ab<span style="color: #f00;">c</span>') );
+// =>'ab<span style="color: #f00;">c</span>'.
 ```
