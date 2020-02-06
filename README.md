@@ -68,3 +68,7 @@ console.dir( stringStyleHtml('HCO3-', 's3;u4') );
 console.dir( stringStyleHtml('abc', 'ab<span style="color: #f00;">c</span>') );
 // =>'ab<span style="color: #f00;">c</span>'.
 ```
+
+## License
+
+This project is licensed under the AGPL license - see [LICENSE.md](LICENSE.md).
