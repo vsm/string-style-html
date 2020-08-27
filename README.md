@@ -6,8 +6,8 @@ It also HTML-encodes any `&`, `<`, and `>` characters in the string
 before it inserts the style tags.
 
 This functionality is used by both
-[`vsm-autocomplete`](https://github.com/vsmjs/vsm-autocomplete) and
-[`vsm-box`](https://github.com/vsmjs/vsm-box).
+[`vsm-autocomplete`](https://github.com/vsm/vsm-autocomplete) and
+[`vsm-box`](https://github.com/vsm/vsm-box).
 
 
 ## Specification
