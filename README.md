@@ -2,8 +2,8 @@
 
 Converts a **string** and a simple '**style**'-instructions string,
 to **HTML** code that has styling tags inserted.  
-It also HTML-encodes any `&`, `<`, and `>` characters in the string
-before it inserts the style tags.
+It also HTML-encodes any `&`, `<`, and `>` characters in the string,
+so they don't interfere with any inserted style tags.
 
 This functionality is used by both
 [`vsm-autocomplete`](https://github.com/vsm/vsm-autocomplete) and
@@ -41,7 +41,7 @@ All arguments are Strings, and the last two are optional.
     + E.g. `f('abcd', 'i1;u2-4')`
       returns `'a<i>b</i><sup>cd</sup>'`.<br><br>
 
-- It html-encodes `<`, `>`, and `&`.
+- It html-encodes `<`, `>`, and `&` (also if no `style` is given).
   + E.g. `f('<b&d>', 'b2')`
     returns `'&lt;b<b>&amp;</b>d&gt;'`.<br><br>
 

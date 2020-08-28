@@ -5,7 +5,8 @@ chai.should();
 
 describe.only('stringStyleHtml()', () => {
 
-  it('does not modify a string when not given a `style` argument', () => {
+  it('does not modify a string (without \'<\', \'>\', or \'&\') ' +
+    'when not given a `style` argument', () => {
     stringStyleHtml('abc').should.equal('abc');
   });
 
@@ -76,6 +77,10 @@ describe.only('stringStyleHtml()', () => {
 
   it('html-encodes \'<\', \'>\', and \'&\'', () => {
     stringStyleHtml('<b&d>', 'b2').should.equal('&lt;b<b>&amp;</b>d&gt;');
+  });
+
+  it('html-encodes \'<\', \'>\', and \'&\', also if `style` is `\'\'`', () => {
+    stringStyleHtml('<b&d>', '').should.equal('&lt;b&amp;d&gt;');
   });
 
   it('adds extra content to inserted opening-tags, via argument 3', () => {

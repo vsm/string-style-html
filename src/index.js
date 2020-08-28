@@ -8,7 +8,7 @@ var typesToTags = {
 
 
 module.exports = function stringStyleHtml(str, style, extraTagContent) {
-  if (!style  ||  typeof style !== 'string')  return str;
+  if (!style  ||  typeof style !== 'string')  return htmlEncode(str);
 
   if (style.includes('<'))  return style;
 
